@@ -30,8 +30,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <input type="tel" th:value="${user.phone}" class="form-control" id="phone" name="phone" th:classappend="${#fields.hasErrors('phone')? 'is-invalid':''}"
-                        placeholder="Phone Number" pattern="[0-9]{10}">
+                    <input type="text" th:value="${user.phone}" class="form-control" id="phone" name="phone" th:classappend="${#fields.hasErrors('phone')? 'is-invalid':''}"
+                        placeholder="Phone Number">
                     <div th:each="error: ${#fields.errors('phone')}" th:text="${error}"></div>
                 </div>
 
@@ -44,10 +44,6 @@
                 <div class="mb-3">
                     <input type="password" class="form-control" id="password" name="password" placeholder="password" th:classappend="${#fields.hasErrors('password')? 'is-invalid':''}">
                     <div th:each="error: ${#fields.errors('password')}" th:text="${error}"></div>
-                    <div id="passwordHelpBlock" class="form-text">
-                        Your password must be atleast 8 characters long, contain atleast one Capital, Small Letter,
-                        Special Character and a Number.
-                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
