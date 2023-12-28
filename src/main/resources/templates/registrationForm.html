@@ -13,45 +13,46 @@
 
 <body class="d-flex justify-content-center align-items-center vh-100">
 
-    <form th:action="@{/success}" method="post">
+    <form th:action="@{/success}" method="post" th:object="${user}">
         <div class="card" style="width: 23rem;">
             <img th:src="@{/images/beyond-quantum-font.png}" class="card-img-top p-2" alt="...">
             <div class="card-body">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" autocomplete="off" placeholder="Name" required>
+                    <input type="text" th:value="${user.name}" class="form-control" id="name" name="name" autocomplete="off" placeholder="Name">
+                    <p th:each="error: ${#fields.errors('name')}" th:text="${error}"></p>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" autocomplete="off" placeholder="email@mail.com"
-                        required>
+                    <input type="text" th:value="${user.email}" class="form-control" id="email" name="email" autocomplete="off" placeholder="email@mail.com">
+                    <p th:each="error: ${#fields.errors('email')}" th:text="${error}"></p>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number" pattern="[0-9]{5}"
-                        required>
+                    <input type="tel" th:value="${user.phone}" class="form-control" id="phone" name="phone" placeholder="Phone Number" pattern="[0-9]{10}">
+                    <p th:each="error: ${#fields.errors('phone')}" th:text="${error}"></p>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" autocomplete="off" placeholder="username"
-                        required>
+                    <input type="text" th:value="${user.username}" class="form-control" id="username" name="username" autocomplete="off" placeholder="username">
+                    <p th:each="error: ${#fields.errors('username')}" th:text="${error}"></p>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                    <p th:each="error: ${#fields.errors('password')}" th:text="${error}"></p>
                     <div id="passwordHelpBlock" class="form-text">
-                        Your password must be atleast 8 characters long, contain letters and numbers, and must not contain spaces, special
-                        characters, or emoji.
+                        Your password must be atleast 8 characters long, contain atleast one Capital, Small Letter, Special Character and a Number.
                     </div>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-            
+
         </div>
 
     </form>

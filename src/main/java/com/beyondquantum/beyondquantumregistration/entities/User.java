@@ -1,11 +1,18 @@
 package com.beyondquantum.beyondquantumregistration.entities;
 
 
+import jakarta.validation.constraints.NotBlank;
+
 public class User {
+    @NotBlank(message = "Name cannot be blank")
     private String name;
+    @NotBlank(message = "Email cannot be blank")
     private String email;
+    @NotBlank(message = "Phone cannot be blank")
     private String phone;
+    @NotBlank(message = "Username cannot be blank")
     private String username;
+    @NotBlank(message = "Please set a password")
     private String password;
 
     public String getName() {
