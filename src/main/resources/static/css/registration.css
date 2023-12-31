@@ -34,3 +34,11 @@
   color: #0d035c;
   text-decoration: underline;
 }
+
+.errorMessage {
+  text-align: left;
+  font-size: 13.5px;
+  opacity: 0.8;
+  color: darkred;
+  font-weight: 500;
+}
