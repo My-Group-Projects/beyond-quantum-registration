@@ -61,3 +61,8 @@ a:hover {
   font-weight: 500;
   margin-top:-0.75rem;
 }
+
+.form-control:focus{
+  border-color: #0d035c;
+  box-shadow: 0 0 0 0.25rem #e290f9;
+}

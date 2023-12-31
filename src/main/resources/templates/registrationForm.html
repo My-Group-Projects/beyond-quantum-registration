@@ -25,7 +25,7 @@
 
                 <div class="mb-3">
                     <input type="text" th:value="${user.email}" class="form-control" id="email" name="email" th:classappend="${#fields.hasErrors('email')? 'is-invalid':''}"
-                        autocomplete="off" placeholder="email@mail.com">
+                        autocomplete="off" placeholder="name@email.com">
                     <div class="errorMessage" th:each="error: ${#fields.errors('email')}" th:text="${error}"></div>
                 </div>
 
@@ -37,12 +37,12 @@
 
                 <div class="mb-3">
                     <input type="text" th:value="${user.username}" class="form-control" id="username" name="username" th:classappend="${#fields.hasErrors('username')? 'is-invalid':''}"
-                        autocomplete="off" placeholder="username">
+                        autocomplete="off" placeholder="Username">
                     <div class="errorMessage" th:each="error: ${#fields.errors('username')}" th:text="${error}"></div>
                 </div>
 
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="password" th:classappend="${#fields.hasErrors('password')? 'is-invalid':''}">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" th:classappend="${#fields.hasErrors('password')? 'is-invalid':''}">
                     <div class="errorMessage" th:each="error: ${#fields.errors('password')}" th:text="${error}"></div>
                 </div>
 
