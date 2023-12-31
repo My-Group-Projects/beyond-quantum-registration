@@ -14,7 +14,7 @@
 <body class="d-flex justify-content-center align-items-center vh-100">
 
     <form th:action="@{/success}" method="post" th:object="${user}">
-        <div class="card" style="width: 23rem;">
+        <div class="card formContainer" >
             <img th:src="@{/images/beyond-quantum-font.png}" class="card-img-top p-2" alt="...">
             <div class="card-body">
                 <div class="mb-3">
@@ -46,7 +46,11 @@
                     <div th:each="error: ${#fields.errors('password')}" th:text="${error}"></div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-text">
+                    By Registering, you agree to <a th:href=@{#}>Terms</a> and <a th:href=@{#}>Privacy</a> Policy.
+                </div>
+
+                <button type="submit" class="btn btn-primary registerBtn">Register</button>
             </div>
 
         </div>
