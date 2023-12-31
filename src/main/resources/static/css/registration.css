@@ -1,3 +1,11 @@
+html{
+  height: 100vh;
+}
+.card{
+  margin: 5.5vh 0 5vh;
+
+}
+
 .formContainer {
   width: 25rem;
   text-align: center;
