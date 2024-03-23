@@ -1,6 +1,6 @@
 package com.beyondquantum.beyondquantumregistration.controller;
 
-import com.beyondquantum.beyondquantumregistration.entities.User;
+import com.beyondquantum.beyondquantumregistration.dto.UserDto;
 import com.beyondquantum.beyondquantumregistration.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,18 +18,18 @@ public class RegistrationController {
     UserService userService;
 
     @GetMapping("/registration")
-    public String registrationForm(Model model){
-        model.addAttribute("user", new User()); //sending empty user
+    public String registrationForm(Model model) {
+        model.addAttribute("user", new UserDto()); //sending empty user
         return "registrationForm";
     }
 
     @PostMapping("/registration")
-    public String onSubmit(@Valid @ModelAttribute("user") User user, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+    public String onSubmit(@Valid @ModelAttribute("user") UserDto userDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             System.out.println("result " + bindingResult);
             return "registrationForm";
         }
-        userService.addUserToDatabase(user);
+        userService.addUserToDatabase(userDto);
         return "success";
     }
 }
