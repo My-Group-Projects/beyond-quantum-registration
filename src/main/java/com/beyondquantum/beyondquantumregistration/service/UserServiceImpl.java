@@ -5,6 +5,7 @@ import com.beyondquantum.beyondquantumregistration.entities.User;
 import com.beyondquantum.beyondquantumregistration.repository.UserRepository;
 import com.beyondquantum.beyondquantumregistration.util.EncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,6 +14,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public void addUserToDatabase(UserDto userDto) {
         User user = new User();
@@ -20,7 +24,7 @@ public class UserServiceImpl implements UserService {
         user.setUsername(EncryptionUtil.encrypt(userDto.getUsername()));
         user.setEmail(EncryptionUtil.encrypt(userDto.getEmail()));
         user.setPhone(EncryptionUtil.encrypt(userDto.getPhone()));
-        user.setPassword(EncryptionUtil.encrypt(userDto.getPassword()));
+        user.setPassword(passwordEncoder.encode(EncryptionUtil.encrypt(userDto.getPassword())));
 
         userRepository.save(user);
     }
