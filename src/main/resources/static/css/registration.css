@@ -1,0 +1,73 @@
+html {
+  height: 100vh;
+}
+
+body {
+  flex-direction: column;
+}
+
+.card {
+  margin: 5.5vh 0 5vh;
+}
+
+.formContainer {
+  width: 25rem;
+  text-align: center;
+}
+
+.registerBtn {
+  margin-top: 2rem;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    #0d035c 0%,
+    #80199c 50%,
+    #0d035c 100%
+  );
+  border: none;
+  transition: ease-in-out 0.3s;
+}
+
+.registerBtn:hover {
+  transform: scale(1.03);
+}
+
+.form-text {
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  color: #80199c;
+}
+
+a:hover {
+  color: #0d035c;
+  text-decoration: underline;
+}
+
+.errorMessage {
+  text-align: left;
+  font-size: 13.5px;
+  opacity: 0.8;
+  color: darkred;
+  font-weight: 500;
+}
+
+.loginCard {
+  width: 25rem;
+  text-align: center;
+  font-weight: 500;
+  margin-top:-0.75rem;
+}
+
+.form-control:focus{
+  border-color: #0d035c;
+  box-shadow: 0 0 0 0.25rem #e290f9;
+}
+
+.logoFontImage{
+  user-select:none;
+  -webkit-user-drag: none;
+}
