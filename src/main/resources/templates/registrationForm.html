@@ -27,18 +27,21 @@
                     <input type="text" th:value="${user.email}" class="form-control" id="email" name="email" th:classappend="${#fields.hasErrors('email')? 'is-invalid':''}"
                         autocomplete="off" placeholder="name@email.com">
                     <div class="errorMessage" th:each="error: ${#fields.errors('email')}" th:text="${error}"></div>
+                    <div class="errorMessage" th:if="${isEmailExists}">Email already exists.</div>
                 </div>
 
                 <div class="mb-3">
                     <input type="text" th:value="${user.phone}" class="form-control" id="phone" name="phone" th:classappend="${#fields.hasErrors('phone')? 'is-invalid':''}"
                         placeholder="Phone Number">
                     <div class="errorMessage" th:each="error: ${#fields.errors('phone')}" th:text="${error}"></div>
+                    <div class="errorMessage" th:if="${isPhoneExists}" >Phone number already exists.</div>
                 </div>
 
                 <div class="mb-3">
                     <input type="text" th:value="${user.username}" class="form-control" id="username" name="username" th:classappend="${#fields.hasErrors('username')? 'is-invalid':''}"
                         autocomplete="off" placeholder="Username">
                     <div class="errorMessage" th:each="error: ${#fields.errors('username')}" th:text="${error}"></div>
+                    <div class="errorMessage" th:if="${isUsernameExists}" >Username already exists.</div>
                 </div>
 
                 <div class="mb-3">
@@ -53,7 +56,7 @@
                 <button type="submit" class="btn btn-primary registerBtn">Register</button>
             </div>
 
-            
+
         </form>
     </div>
 
