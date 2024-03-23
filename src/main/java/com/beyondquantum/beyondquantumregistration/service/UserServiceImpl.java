@@ -3,7 +3,7 @@ package com.beyondquantum.beyondquantumregistration.service;
 import com.beyondquantum.beyondquantumregistration.dto.UserDto;
 import com.beyondquantum.beyondquantumregistration.entities.User;
 import com.beyondquantum.beyondquantumregistration.repository.UserRepository;
-import com.beyondquantum.beyondquantumregistration.util.EncryptionDecryptionUtil;
+import com.beyondquantum.beyondquantumregistration.util.EncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,27 +16,27 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUserToDatabase(UserDto userDto) {
         User user = new User();
-        user.setName(EncryptionDecryptionUtil.encrypt(userDto.getName()));
-        user.setUsername(EncryptionDecryptionUtil.encrypt(userDto.getUsername()));
-        user.setEmail(EncryptionDecryptionUtil.encrypt(userDto.getEmail()));
-        user.setPhone(EncryptionDecryptionUtil.encrypt(userDto.getPhone()));
-        user.setPassword(EncryptionDecryptionUtil.encrypt(userDto.getPassword()));
+        user.setName(EncryptionUtil.encrypt(userDto.getName()));
+        user.setUsername(EncryptionUtil.encrypt(userDto.getUsername()));
+        user.setEmail(EncryptionUtil.encrypt(userDto.getEmail()));
+        user.setPhone(EncryptionUtil.encrypt(userDto.getPhone()));
+        user.setPassword(EncryptionUtil.encrypt(userDto.getPassword()));
 
         userRepository.save(user);
     }
 
     @Override
     public User getUserByEmail(String email) {
-        return userRepository.findByEmail(EncryptionDecryptionUtil.encrypt(email));
+        return userRepository.findByEmail(EncryptionUtil.encrypt(email));
     }
 
     @Override
     public User getUserByPhone(String phone) {
-        return userRepository.findByPhone(EncryptionDecryptionUtil.encrypt(phone));
+        return userRepository.findByPhone(EncryptionUtil.encrypt(phone));
     }
 
     @Override
     public User getUserByUsername(String username) {
-        return userRepository.findByUsername(EncryptionDecryptionUtil.encrypt(username));
+        return userRepository.findByUsername(EncryptionUtil.encrypt(username));
     }
 }

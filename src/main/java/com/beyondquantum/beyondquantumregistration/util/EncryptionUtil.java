@@ -7,8 +7,8 @@ import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class EncryptionDecryptionUtil {
-    private static final Logger LOGGER = Logger.getLogger(EncryptionDecryptionUtil.class.getName());
+public class EncryptionUtil {
+    private static final Logger LOGGER = Logger.getLogger(EncryptionUtil.class.getName());
     private static final String ALGORITHM = "AES";
     private static final String MODE_PADDING = "AES/ECB/PKCS5Padding";
     private static final String SECRET_KEY = "BPe71hOVy+37QgGwv/YyBizng1Q7npd1GryjXwqo++I=";
