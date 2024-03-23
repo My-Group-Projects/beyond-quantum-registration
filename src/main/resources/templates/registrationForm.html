@@ -15,7 +15,7 @@
 
     <div class="card formContainer" >
         <form th:action="@{/registration}" method="post" th:object="${user}">
-            <img th:src="@{/images/beyond-quantum-font.png}" class="card-img-top p-4" alt="...">
+            <img th:src="@{/images/beyond-quantum-font.png}" class="card-img-top p-4 logoFontImage" alt="...">
             <div class="card-body">
                 <div class="mb-3">
                     <input type="text" th:value="${user.name}" class="form-control" id="name" name="name" th:classappend="${#fields.hasErrors('name')? 'is-invalid':''}"
