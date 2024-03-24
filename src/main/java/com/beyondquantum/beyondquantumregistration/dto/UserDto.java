@@ -1,11 +1,23 @@
 package com.beyondquantum.beyondquantumregistration.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+
 public class UserDto {
     private Long id;
+    @NotBlank(message = "Name cannot be blank")
     private String name;
+    @NotBlank(message = "Email cannot be blank")
+    @Pattern(regexp = "^[\\w.-]+@[a-zA-Z\\d.-]+\\.[a-zA-Z]{2,}$", message = "Invalid Email Address")
     private String email;
+    @Pattern(regexp = "[0-9]{10}", message = "Invalid Phone Number")
+    @NotBlank(message = "Phone cannot be blank")
     private String phone;
+    @Pattern(regexp = "^(?=(?:[^a-z]*[a-z]){3})[a-z\\d_]{5,}$", message = "Username must be at least 5 characters long, may contain underscores, may contain numbers, only small letters are allowed, and should have at least 3 letters.")
+    @NotBlank(message = "Username cannot be blank")
     private String username;
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = "Your password must be atleast 8 characters long, contain atleast one Capital, Small Letter, Special Character and a Number.")
+    @NotBlank(message = "Please set a password")
     private String password;
 
     public String getName() {
